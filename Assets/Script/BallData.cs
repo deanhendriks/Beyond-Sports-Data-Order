@@ -15,4 +15,24 @@ public class BallData
         this._PositionZ = float.Parse(_positionZ);
         this._BallSpeed = double.Parse(_BallSpeed);
     }
+
+    public float GetPositionX()
+    {
+        return _PositionX;
+    }
+
+    public float GetPositionY()
+    {
+        return _PositionY;
+    }
+
+    public float GetPositionZ()
+    {
+        return _PositionZ;
+    }
+
+    public double GetBallSpeed()
+    {
+        return _BallSpeed;
+    }
 }

@@ -7,16 +7,16 @@ public class Frame
 
     public Frame(string line)
     {
-        trackedObjectList = GetTrackedObjects(line);
+        trackedObjectList = InitializeTrackedObjects(line);
         balldata = GetBallData(line);
     }
 
-    private List<TrackedObj> GetTrackedObjects(string line)
+    private List<TrackedObj> InitializeTrackedObjects(string line)
     {
         List<TrackedObj> trackedobjectlist = new List<TrackedObj>();
         string trackedobjectsline = splitString(line, ":")[1];
         string[] trackedobjects = splitString(trackedobjectsline, ";");
-               
+
         foreach (string trackedobject in trackedobjects)
         {
             Debug.Log(trackedobject);
@@ -29,10 +29,14 @@ public class Frame
 
     private BallData GetBallData(string line)
     {
-        Debug.Log(balldata);
         string balldatasline = splitString(line, ":")[2];
         string balldatas = splitString(balldatasline, ";")[0];
         return convertStringToBallData(balldatas);
+    }
+
+    public List<TrackedObj> GetTrackedObjects()
+    {
+        return trackedObjectList;
     }
 
     private string[] splitString(string line, string seperator)
